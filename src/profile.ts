@@ -78,12 +78,12 @@ export const education = [{
   dates:     '2010 – 2013',
   highlight: 'Upskilled in the Java language by [Rémi FORAX](https://github.com/forax), major contributor to its expansion.\nAwarded with the greatest dis-tinction. Graduated top of class.',
 }, {
-  degree:    `Licentiate's Degree`,
+  degree:    'Licentiate Degree',
   field:     'Computer Science',
   dates:     '2008 – 2010',
   highlight: 'Awarded with the greatest dis-tinction. Graduated top of class.',
 }, {
-  degree:    `Bachelor's Degree`,
+  degree:    'Baccalaureate',
   field:     'Applied Physics for Electronics',
   dates:     '2005 – 2008',
   highlight: 'Awarded with the greatest dis-tinction. Graduated top of class; top 0.4% nationwide.',
