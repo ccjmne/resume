@@ -20,6 +20,10 @@ export const links = [{
   icon: 'github.svg',
   href: 'https://github.com/ccjmne',
   text: 'github/ccjmne',
+}, {
+  icon: 'blog.svg',
+  href: 'https://ccjmne.sh/blog',
+  text: 'ccjmne.sh/blog',
 }]
 
 export const skills = [
