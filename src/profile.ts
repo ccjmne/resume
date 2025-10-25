@@ -137,6 +137,7 @@ export const highlights = [{
 
 export const timeline = `
 ╷╷╷
+☆││ Inaugurate [my tech blog](https://ccjmne.sh/blog)
 ││☆ First principal engineer role
 ☆││ Migrate to [Neovim](https://neovim.io/)
 ││★
