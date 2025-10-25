@@ -56,7 +56,7 @@ export const experience = [{
   dates:    'Sep. 2012 – Mar. 2013',
   company:  '[Gaspard Monge Institute](https://igm.univ-gustave-eiffel.fr/)',
   location: 'Paris area, France',
-  title:    'Project Manager',
+  title:    'Product Owner',
   abstract: 'Led a team of 5 junior IT engineers implementing a proof-of-concept solution for a research project of the institute.',
 }, {
   dates:    'Sep. 2010 – Sep. 2013',
