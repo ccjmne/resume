@@ -43,7 +43,7 @@ main {
     z-index:    -1;
     top:        0;
     right:      0;
-    bottom:     0;
+    bottom:     1px; // +1 here to account for possible rounding artifacts when printing
     left:       0;
     mask-image: url('#main-background-mask');
 

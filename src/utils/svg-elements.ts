@@ -85,7 +85,7 @@ export function titlebar({ x, y, h, seed, align = 'left', separator = true }: { 
       .join(' ')
   }
 
-  return elementSVG('g').attrs({ transform: `translate(0, ${y})` }).content(
+  return elementSVG('g').attrs({ transform: `translate(-1, ${y})` }).content( // -1 here to account for possible rounding artifacts when printing
     elementSVG('path').attrs({ fill: '#000', transform: `translate(${x})`, d: disintegrate(7, 18) }),
     elementSVG('rect').attrs({ fill: '#000', x: align === 'left' ? 0 : x, y: 0,   height: h,  width: align === 'left' ? x : 9999 }),
     elementSVG('rect').attrs({ fill: '#fff', x: 0,                        y: -10, height: 10, width: 9999 }), // clip overflowing rhombuses
