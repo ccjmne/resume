@@ -46,7 +46,7 @@ jobs:
 
       - name: Compile PDF
         run: |
-          HYPHENATE=no OUTPUT=${{ env.resume-file }} pnpm build
+          TWOPASS=yes HYPHENATE=no OUTPUT=${{ env.resume-file }} pnpm build
 
       - name: Upload resume artifact
         uses: actions/upload-artifact@v4
