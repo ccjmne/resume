@@ -18,17 +18,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Set up pnpm
-        uses: pnpm/action-setup@v4.1.0
+        uses: pnpm/action-setup@v5
         with:
+          cache: true
           run_install: false
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          cache: 'pnpm'
+          standalone: true
 
       - name: Install dependencies
         run: pnpm install
@@ -54,7 +51,7 @@ jobs:
              -sOutputFile=dist/${{ env.resume-file }} dist/base.pdf
 
       - name: Upload resume artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: ${{ env.artifact-id }}
           path: dist/${{ env.resume-file }}
@@ -74,7 +71,7 @@ jobs:
 
     steps:
       - name: Download resume artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v7
         with:
           name: ${{ env.artifact-id }}
 
