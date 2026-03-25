@@ -15,11 +15,12 @@ export interface PDFPrinterConfig {
   host?:       string
   port?:       number
   paths?:      string[]
+  twopass?:    boolean
   options?:    PDFOptions | ScreenshotOptions
   properties?: DocumentProperties
 }
 
-export default function renderer({ properties, scheme = 'http', host = 'localhost', port = 80, paths = [''], output, options }: PDFPrinterConfig): Plugin {
+export default function renderer({ properties, scheme = 'http', host = 'localhost', port = 80, paths = [''], output, options, twopass = false }: PDFPrinterConfig): Plugin {
   const out: string = resolve(output.replace(/(\.[a-w]{2,4})?$/i, ext => /^\.png$/i.test(ext) ? '.png' : '.pdf'))
   const type: 'PDF' | 'PNG' = /\.pdf$/i.test(out) ? 'PDF' : 'PNG'
   const uris: string[] = paths.map(path => `${scheme}://${host}${scheme === 'http' ? `:${port}` : ''}/${path.replace(/^\//, '')}`)
@@ -31,6 +32,12 @@ export default function renderer({ properties, scheme = 'http', host = 'localhos
         const page = await browser.newPage()
         await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 1 }) // A4 Portrait @ 96 DPI
         await page.goto(uri, { waitUntil: 'networkidle0' })
+        if (twopass && type === 'PDF') {
+          await page.evaluate(() => document.body.dataset.layer = 'bg')
+          const bg = await page.screenshot({ fullPage: true, omitBackground: false, optimizeForSpeed: true, ...(options as ScreenshotOptions) })
+          await page.addStyleTag({ content: `body { background-image: url('data:image/jpeg;base64,${Buffer.from(bg).toString('base64')}') !important; }` })
+          await page.evaluate(() => document.body.dataset.layer = 'fg')
+        }
         const content = await (type === 'PDF'
           ? page.pdf({ format: 'A4', landscape: false, printBackground: true, ...options, margin: { top: '0', right: '0', bottom: '0', left: '0' } })
           : page.screenshot({ fullPage: true, omitBackground: false, optimizeForSpeed: true, ...(options as ScreenshotOptions) }))

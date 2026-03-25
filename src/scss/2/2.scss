@@ -13,6 +13,13 @@ body {
   grid-template:
     'main'   1fr
     'footer' auto / 1fr;
+  &[data-layer=bg] {
+    [grid-area=graph], footer { visibility: hidden; }
+    [grid-area=highlights] { h2, section { visibility: hidden; } }
+  }
+  &[data-layer=fg] {
+    main::before { visibility: hidden; }
+  }
 }
 
 main {

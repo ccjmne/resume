@@ -11,4 +11,11 @@ body {
   width: 100vw;
   height: 100vh;
   margin: 0;
+  &[data-layer=bg] {
+    aside > *, main > header, main > h2, main > section { visibility: hidden; }
+    .logo { visibility: visible; }
+  }
+  &[data-layer=fg] {
+    main::before, .logo { visibility: hidden; }
+  }
 }

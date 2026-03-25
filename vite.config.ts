@@ -13,7 +13,7 @@ const dist = resolve(__dirname, 'dist')
 const pages = preparePages()
 
 export default defineConfig(({ mode }) => {
-  const { DATE, PORT, HYPHENATE, OUTPUT } = loadEnv(mode, process.cwd(), '')
+  const { DATE, PORT, HYPHENATE, OUTPUT, TWOPASS } = loadEnv(mode, process.cwd(), '')
   const port = Number(PORT) ?? 8042
   return {
     root:  src,
@@ -30,6 +30,7 @@ export default defineConfig(({ mode }) => {
       renderer({
         port,
         output:     resolve(dist, OUTPUT ?? `${name}.pdf`),
+        twopass:    /^y/i.test(TWOPASS),
         properties: { title, author, subject: description, keywords: keywords.join(', ') },
         ...mode === 'production'
           ? { scheme: 'file', paths: pages.map(name => resolve(dist, `${name}.html`)) }
