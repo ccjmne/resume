@@ -27,8 +27,8 @@ export default function renderer({ properties, scheme = 'http', host = 'localhos
 
   async function writeBundle() {
     return withBrowser(async (browser) => {
-      // Page#screenshot cannot be parallelised on Chromium browsers
-      const contents = await (type === 'PNG' ? allSequential : allParallel)(uris, async function (uri) {
+      // Page#screenshot cannot be parallelised on Chromium browsers (last personally ascertained: 2026-03-25)
+      const contents = await (twopass || type === 'PNG' ? allSequential : allParallel)(uris, async function (uri) {
         const page = await browser.newPage()
         await page.setViewport({ width: 794, height: 1123, deviceScaleFactor: 1 }) // A4 Portrait @ 96 DPI
         await page.goto(uri, { waitUntil: 'networkidle0' })
