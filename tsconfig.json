@@ -1,12 +1,11 @@
 {
-  "compileOnSave": true,
   "compilerOptions": {
     "incremental": true,
     "target": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": ["DOM", "ESNext"],
     "baseUrl": ".",
     "module": "ESNext",
-    "moduleResolution": "Node",
+    "moduleResolution": "Bundler",
     "paths": {
       "*": ["src/*"]
     },
@@ -20,11 +19,6 @@
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true
-  },
-  "ts-node": {
-    "compilerOptions": {
-      "module": "CommonJS"
-    }
   },
   "exclude": ["node_modules", "dist"]
 }

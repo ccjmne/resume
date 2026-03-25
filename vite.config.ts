@@ -3,7 +3,7 @@ import { resolve } from 'node:path'
 
 import process from 'node:process'
 import { JSDOM } from 'jsdom'
-import { defineConfig, loadEnv  } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 
 import { author, description, homepage, keywords, name, title } from './package.json'
 import renderer from './tooling/renderer-plugin'
