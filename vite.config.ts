@@ -10,11 +10,12 @@ import renderer from './tooling/renderer-plugin'
 
 const src = resolve(__dirname, 'src')
 const dist = resolve(__dirname, 'dist')
-const pages = preparePages()
+const base = preparePages()
 
 export default defineConfig(({ mode }) => {
-  const { DATE, PORT, HYPHENATE, OUTPUT, TWOPASS } = loadEnv(mode, process.cwd(), '')
+  const { DATE, PORT, HYPHENATE, OUTPUT, TWOPASS, PAGES } = loadEnv(mode, process.cwd(), '')
   const port = Number(PORT) ?? 8042
+  const pages = PAGES ? base.filter(name => PAGES.split(/,/g).includes(name)) : base
   return {
     root:  src,
     base:  './', // Relative paths for assets, so I can navigate there through Puppeteer w/o a Web server
