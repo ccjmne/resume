@@ -34,8 +34,10 @@ jobs:
         run: pnpm install
 
       - name: Install chrome
-        run: |
-          pnpm puppeteer browsers install chrome
+        run: pnpm puppeteer browsers install chrome
+
+      - name: Install ghostscript
+        run: sudo apt-get update && sudo apt-get install -y ghostscript
 
       - name: Verify manual hyphenation
         id: hyphenation-check
@@ -46,7 +48,10 @@ jobs:
 
       - name: Compile PDF
         run: |
-          TWOPASS=yes HYPHENATE=no OUTPUT=${{ env.resume-file }} pnpm build
+          TWOPASS=yes HYPHENATE=no OUTPUT=base.pdf pnpm build
+          gs -dCompatibilityLevel=1.4 -sDEVICE=pdfwrite     \
+             -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH \
+             -sOutputFile=dist/${{ env.resume-file }} dist/base.pdf
 
       - name: Upload resume artifact
         uses: actions/upload-artifact@v4
