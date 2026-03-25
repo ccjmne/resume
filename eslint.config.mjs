@@ -15,8 +15,7 @@ export default antfu({
     'style/no-floating-decimal': 'off',
     'no-sequences':              'off',
     'prefer-arrow-callback':     'off',
-
-    'style/key-spacing': [
+    'style/key-spacing':         [
       'warn',
       { multiLine: { beforeColon: false, afterColon: true }, align: { beforeColon: false, afterColon: true, on: 'value' } },
     ],

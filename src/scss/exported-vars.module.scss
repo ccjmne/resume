@@ -3,9 +3,9 @@
 @use './colours' as colours;
 
 @function hsl-str($color) {
-  $hue:        color.channel($color, "hue", $space: hsl);
+  $hue:        color.channel($color, "hue",        $space: hsl);
   $saturation: color.channel($color, "saturation", $space: hsl);
-  $lightness:  color.channel($color, "lightness", $space: hsl);
+  $lightness:  color.channel($color, "lightness",  $space: hsl);
   @return string.unquote('hsl(#{$hue}, #{$saturation}, #{$lightness})');
 }
 

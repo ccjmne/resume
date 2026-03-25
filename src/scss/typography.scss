@@ -1,10 +1,11 @@
 @use 'sass:color';
-@use "sass:map";
+@use 'sass:map';
 @use 'colours';
 
 @font-face {
   font-family:  Raleway;
   src:          url('/assets/fonts/Raleway-VariableFont_wght.ttf') format('woff');
+  // TODO: that's illegal, only a single font-weight is available per font-face, apparently
   font-weight:  400 500 600 700 800;
   font-display: swap;
 }
