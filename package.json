@@ -4,7 +4,7 @@
   "version": "2.1.0",
   "packageManager": "pnpm@10.4.0",
   "description": "My static HTML resume, printed out into an A4 portrait PDF document",
-  "author": "Éric NICOLAS (ccjmne) <ccjmne@gmail.com>",
+  "author": "Éric NICOLAS (ccjmne) <ccjmne@gmail.com>",
   "license": "GPL-3.0",
   "homepage": "https://github.com/ccjmne/resume#readme",
   "repository": {

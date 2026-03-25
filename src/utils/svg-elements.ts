@@ -73,7 +73,7 @@ export function titlebar({ x, y, h, seed, align = 'left', separator = true }: { 
       throw new Error('Requires at least two rows')
     }
 
-    const size = h / ((rows - 1) / 2)
+    const size = 2 * h / (rows - 1)
     const step = smootherstep(size * cols, 0) // step DOWN over [0, size * cols]
 
     return [...Array(rows).keys()]
