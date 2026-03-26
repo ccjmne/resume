@@ -16,8 +16,9 @@
   },
   "keywords": ["ccjmne", "html", "pdf", "resume"],
   "scripts": {
-    "start": "TWOPASS=yes HYPHENATE=yes PORT=8042 vite       --log-level info",
-    "build": "TWOPASS=yes BROWSER_KEEPALIVE=0     vite build --log-level warn"
+    "start": "HYPHENATE=yes PORT=8042 vite       --log-level info",
+    "build": "BROWSER_KEEPALIVE=0     vite build --log-level warn",
+    "ghost": "gs -sDEVICE=pdfwrite -dBATCH -dNOPAUSE -sOutputFile=dist/${OUT:-compresssed.pdf} dist/${IN:-resume.pdf}"
   },
   "dependencies": {
     "pdfjs": "^2.5.4",

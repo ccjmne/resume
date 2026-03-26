@@ -39,16 +39,14 @@ jobs:
       - name: Verify manual hyphenation
         id: hyphenation-check
         run: |
-          HYPHENATE=yes OUTPUT=expected.png pnpm build && mv dist/expected.png .
-          HYPHENATE=no  OUTPUT=actual.png   pnpm build && mv dist/actual.png .
+          OUTPUT=expected.png HYPHENATE=yes pnpm build && mv dist/expected.png .
+          OUTPUT=actual.png   HYPHENATE=no  pnpm build && mv dist/actual.png .
           diff --brief expected.png actual.png
 
       - name: Compile PDF
         run: |
-          TWOPASS=yes HYPHENATE=no OUTPUT=base.pdf pnpm build
-          gs -dCompatibilityLevel=1.4 -sDEVICE=pdfwrite     \
-             -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH \
-             -sOutputFile=dist/${{ env.resume-file }} dist/base.pdf
+          OUTPUT=raw.pdf HYPHENATE=no TWOPASS=yes pnpm build
+          IN=raw.pdf OUT=${{ env.resume-file }}   pnpm ghost
 
       - name: Upload resume artifact
         uses: actions/upload-artifact@v7
