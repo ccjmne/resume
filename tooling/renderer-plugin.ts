@@ -34,8 +34,9 @@ export default function renderer({ properties, scheme = 'http', host = 'localhos
         await page.goto(uri, { waitUntil: 'networkidle0' })
         if (twopass && type === 'PDF') {
           await page.evaluate(() => document.body.dataset.layer = 'bg')
-          const bg = await page.screenshot({ fullPage: true, omitBackground: false, optimizeForSpeed: true, ...(options as ScreenshotOptions) })
-          await page.addStyleTag({ content: `body { background-image: url('data:image/jpeg;base64,${Buffer.from(bg).toString('base64')}') !important; }` })
+          const bg = await page.screenshot({ fullPage: true, omitBackground: false, ...(options as ScreenshotOptions) })
+          const sd = await sharp(bg).jpeg({ quality: 92, mozjpeg: true }).toBuffer()
+          await page.addStyleTag({ content: `body { background-image: url('data:image/jpeg;base64,${Buffer.from(sd).toString('base64')}') !important; }` })
           await page.evaluate(() => document.body.dataset.layer = 'fg')
         }
         const content = await (type === 'PDF'
