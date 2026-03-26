@@ -16,8 +16,13 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
 
     steps:
+      - name: Install system-wide tools
+      - run: pacman -Sy --noconfirm chromium diffutils ghostscript nodejs
+
       - uses: actions/checkout@v6
 
       - name: Set up pnpm
@@ -25,16 +30,9 @@ jobs:
         with:
           cache: true
           run_install: false
-          standalone: true
 
       - name: Install dependencies
         run: pnpm install
-
-      - name: Install chrome
-        run: pnpm puppeteer browsers install chrome
-
-      - name: Install ghostscript
-        run: sudo apt-get update && sudo apt-get install -y ghostscript
 
       - name: Verify manual hyphenation
         id: hyphenation-check
