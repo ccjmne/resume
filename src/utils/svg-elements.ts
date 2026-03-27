@@ -85,11 +85,11 @@ export function titlebar({ x, y, h, seed, align = 'left', separator = true }: { 
       .join(' ')
   }
 
-  return elementSVG('g').attrs({ transform: `translate(-1, ${y})` }).content( // -1 here to account for possible rounding artifacts when printing
+  return elementSVG('g').attrs({ transform: `translate(-1, ${y})` }).content( // -1 here to account for possible rounding artefacts when printing
     elementSVG('path').attrs({ fill: '#000', transform: `translate(${x})`, d: disintegrate(7, 18) }),
     elementSVG('rect').attrs({ fill: '#000', x: align === 'left' ? 0 : x, y: 0,   height: h,  width: align === 'left' ? x : 9999 }),
-    elementSVG('rect').attrs({ fill: '#fff', x: 0,                        y: -10, height: 10, width: 9999 }), // clip overflowing rhombuses
-    elementSVG('rect').attrs({ fill: '#fff', x: 0,                        y: h,   height: 10, width: 9999 }), // clip overflowing rhombuses
+    elementSVG('rect').attrs({ fill: '#fff', x: 2,                        y: -10, height: 10, width: 9999 }), // clip overflowing rhombuses,
+    elementSVG('rect').attrs({ fill: '#fff', x: 2,                        y: h,   height: 10, width: 9999 }), //     x at 2: +1 for rounding artefact, +1 to offset parent g translation
     ...separator ? [elementSVG('line').attrs({ stroke: '#000', x1: 0, y1: -.5, x2: 9999, y2: -.5 })] : [],    // 1-pixel border at top
   )
 }
