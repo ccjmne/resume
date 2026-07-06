@@ -4,14 +4,14 @@ Latest: 2026-07-06               ==============                 ccjmne@gmail.com
 
     This project lets me build my current, static, professional resume.
 
-    Find it at https://ccjmne.sh/resume [1], where it is generated anew
-    every night.
+    Find it at https://ccjmne.sh/resume, where it is generated anew every
+    night.
 
 
 Inside the Box -----------------------------------------------------------------
 
     This works by generating some plain HTML pages, then printed out to PDF
-    using Puppeteer [2].
+    using Puppeteer [1].
 
     It may also generate a plain image in the PNG format, whose output is
     stable enough to satify diff-ing needs; I am quite controlling regarding
@@ -30,43 +30,44 @@ Inside the Box -----------------------------------------------------------------
         And the seeds for the random number sequences are playful
         references to events that are meaningful to me.
 
-        I composed a simple class [3] that lets me compose the page
-        in a single JavaScript expression, see 1.ts and 2.ts [3]
-        respectively.
+        I composed a simple class, src/utils/easy-htmlelement.ts, that
+        lets me compose the page in a single JavaScript expression, see
+        src/1.ts and src/2.ts respectively.
 
         The rendering of the VCS (dare I say Git?)-like tracks on
         the second page is also built in-house for the purpose of
         this resume.  It's a fairly lovely piece of code, found at
-        timeline.ts; it works off some input format that I found to be
-        particularly practical to maintain, see the timeline variable
-        exported by profile.ts.
+        src/utils/timeline.ts; it works off some input format that I
+        found to be particularly practical to maintain, see the timeline
+        variable exported by src/profile.ts.
 
 
     A few Lavish Affordances -----------------------------------------------
 
-        Oh yeah, it does use TypeScript for the data as well: what do
-        you know, it's merely some more expressive and elegant JSON.
+        This does use TypeScript for the data as well: what do you know,
+        it's merely some more expressive and elegant JSON.
 
         In the end, I did also splurge for some ready-made bundler (I
-        believe I went through plain shell scripts, then Grunt, then Gulp,
-        then Webpack, then Vite—I've been at it a while), and ended up
-        using SASS for some of its most favourite feature.  I couldn't quite
-        call this project minimalist; but heh, it saw the light of day at a
-        time I was still bright-eyed and bushy-tailed: let the eager zeal of
-        the overindulging youth of yesteryear permeate the mantle of what is
-        today a frugal, austere, relentlessly economical contributor.
+        believe I went through plain shell scripts, then Grunt, then
+        Gulp, then Webpack, then Vite—I've been at it a while), and
+        ended up using SASS for some of its most favourite feature.
+        I couldn't quite call this project minimalist; but heh, it
+        saw the light of day at a time I was still bright-eyed and
+        bushy-tailed: let the eager zeal of the overindulging youth
+        of yesteryear permeate the mantle of what is today a frugal,
+        austere, relentlessly economical contributor.
 
 
 How-To -------------------------------------------------------------------------
 
-    This project is packaged following the most standard Node.js [7]
-    practices (using pnpm [8], for good reasons):
+    This project is packaged following the most standard Node.js [2]
+    practices (using pnpm [3], for good reasons):
 
         install depdendencies:    pnpm install
         run in development mode:  pnpm start
         compile artifact once:    pnpm build
 
-    Other methods are available, the package.json shall collate them.
+    Other utilities are available, the package.json shall collate them.
 
     The output will be generated under *dist*.
 
@@ -81,11 +82,11 @@ How-To -------------------------------------------------------------------------
                   extension to *.pdf*
                 - default to *resume.pdf*
 
-    HYPHENATE   whether to insert soft-hyphens [9] wherever applicable
+    HYPHENATE   whether to insert soft-hyphens [4] wherever applicable
 
                 - disabled by default with production builds, for having
                   &shy; littered throughout each and every word isn't quite
-                  SEO-friendly, and might even throw off ATSes [10]
+                  SEO-friendly, and might even throw off ATSes [5]
                 - enabled when starting with with *y*; default to *no*
 
     TWOPASS     whether to render the background elements into a plain raster
@@ -117,7 +118,7 @@ How-To -------------------------------------------------------------------------
         None.  Gets rebuilt and redeployed every night, so as to provide
         most up-to-date employement durations.
 
-        Continuous Integration is achieved via GitHub Actions [11],
+        Continuous Integration is achieved via GitHub Actions [6],
         whereby in the dead of night (by reasonable understandings of
         folks living in the Europe/Paris timezone), this here repository
         is checked out, its dependencies are installed (if not cached
@@ -126,10 +127,10 @@ How-To -------------------------------------------------------------------------
         the rules expected of the adept English speaker), and if all
         is above board, the document is generated in two passes (see
         the TWOPASS build option) as a PDF, subsequently compressed to
-        acceptable levels with Ghostscript [13].
+        acceptable levels with Ghostscript [7].
 
         Provided that all of the above succeeded, that resulting
-        artifact gets uploaded to a simple GitHub Pages [12]
+        artifact gets uploaded to a simple GitHub Pages [8]
         environment.
 
 Licensing ----------------------------------------------------------------------
@@ -145,22 +146,16 @@ Licensing ----------------------------------------------------------------------
     In short, I didn't go most permissive.  This is ours.  It can be yours
     too, but neither it nor its descendants can be yours only.
 
-    Refer to the LICENSE [14] file for more details.
+    Refer to the LICENSE file for more details.
 
 
 References -------------------------------------------------------------
 
-    [1]:  https://ccjmne.sh/resume
-    [2]:  https://github.com/GoogleChrome/puppeteer
-    [3]:  src/utils/easy-htmlelement.ts
-    [4]:  src/1.ts, src/2.ts
-    [5]:  src/utils/timeline.ts
-    [6]:  src/profile.ts
-    [7]:  https://nodejs.org
-    [8]:  https://pnpm.io
-    [9]:  https://en.wikipedia.org/wiki/Soft_hyphen
-    [10]: https://en.wikipedia.org/wiki/Applicant_tracking_system
-    [11]: https://docs.github.com/en/actions
-    [12]: https://pages.github.com
-    [13]: https://ghostscript.com
-    [14]: LICENSE
+    [1]: https://github.com/GoogleChrome/puppeteer
+    [2]: https://nodejs.org
+    [3]: https://pnpm.io
+    [4]: https://en.wikipedia.org/wiki/Soft_hyphen
+    [5]: https://en.wikipedia.org/wiki/Applicant_tracking_system
+    [6]: https://docs.github.com/en/actions
+    [7]: https://ghostscript.com
+    [8]: https://pages.github.com
