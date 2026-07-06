@@ -51,6 +51,16 @@ The following environment variables can be set to customise the build:
   - the name of the output file, defaults to `ccjmne-resume.pdf`
   - generate screenshot if output ends in `.png`; otherwise coerce extension to `.pdf`
 
+- `TWOPASS`
+  - whether to render the background elements into a plain raster image
+    and embed that in the resulting document, then render the text only
+    in a layer that comes on top
+  - enabled with any value starting with `y`; defaults to `no`
+    - works around the great many inconsistencies across the immensely
+      asymmetric support for SVG rendering across the many PDF visualisers
+      out there, at the cost of non-scalable backgrounds and somewhat greater
+      document size
+
 - `BROWSER_KEEPALIVE`
   - how long to keep the spawned browser instance alive (for successive reprints), in milliseconds
   - defaults to `30000` (30 seconds) in development mode, and `0` in production
