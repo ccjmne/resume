@@ -27,12 +27,12 @@ export const links = [{
 }]
 
 export const skills = [
-  ['AWS Platform', 'Arch. Design'],
-  ['Git Surgery', 'Linux Sys. Admin.'],
-  ['DevOps', 'TypeScript', 'Java'],
-  ['Documentation', 'DB Admin.'],
-  ['Web Dev.', 'Communication'],
-  ['Code Quality', 'Organisation'],
+  ['POSIX Tooling', 'AWS Platform'],
+  ['GNU/Linux Sys. Admin.', 'DevOps'],
+  ['Git Surgery', 'Security Hardening'],
+  ['Minimalist+Architectural+Design'],
+  ['Web Dev.', 'TypeScript', 'Java'],
+  ['Mentoring', 'Communication'],
 ]
 
 export const experience = [{
