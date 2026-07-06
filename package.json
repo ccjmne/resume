@@ -18,7 +18,8 @@
   "scripts": {
     "start": "HYPHENATE=yes PORT=8042 vite       --log-level info",
     "build": "BROWSER_KEEPALIVE=0     vite build --log-level warn",
-    "ghost": "gs -sDEVICE=pdfwrite -dBATCH -dNOPAUSE -dQUIET -sOutputFile=dist/${OUT:-compressed.pdf} dist/${IN:-resume.pdf}"
+    "ghost": "gs -sDEVICE=pdfwrite -dBATCH -dNOPAUSE -dQUIET -sOutputFile=dist/${OUT:-compressed.pdf} dist/${IN:-resume.pdf}",
+    "weave": "TWOPASS=yes pnpm build && pnpm ghost && evince dist/compressed.pdf"
   },
   "dependencies": {
     "pdfjs": "^2.5.4",
