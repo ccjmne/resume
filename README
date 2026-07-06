@@ -16,7 +16,7 @@ Inside the Box -----------------------------------------------------------------
     It may also generate a plain image in the PNG format, whose output is
     stable enough to satify diff-ing needs; I am quite controlling regarding
     hyphenation—and many other things—and require that the resulting
-    artifacts look a certain, authoritative way.
+    artefacts look a certain, authoritative way.
 
 
     Tools and Technologies -----------------------------------------------------
@@ -65,7 +65,7 @@ How-To -------------------------------------------------------------------------
 
         install depdendencies:    pnpm install
         run in development mode:  pnpm start
-        compile artifact once:    pnpm build
+        compile artefact once:    pnpm build
 
     Other utilities are available, the package.json shall collate them.
 
@@ -130,7 +130,7 @@ How-To -------------------------------------------------------------------------
         acceptable levels with Ghostscript [7].
 
         Provided that all of the above succeeded, that resulting
-        artifact gets uploaded to a simple GitHub Pages [8]
+        artefact gets uploaded to a simple GitHub Pages [8]
         environment.
 
 Licensing ----------------------------------------------------------------------
