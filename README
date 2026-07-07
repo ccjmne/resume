@@ -78,30 +78,30 @@ How-To -------------------------------------------------------------------------
 
     OUTPUT      the name of the output file
 
-                - generate a screenshot if output ends in *.png*; otherwise
-                  coerce extension to *.pdf*
-                - default to *resume.pdf*
+                - generates a screenshot if output ends in *.png*; otherwise
+                  coerces extension to *.pdf*
+                - defaults to *resume.pdf*
 
     HYPHENATE   whether to insert soft-hyphens [4] wherever applicable
 
-                - disabled by default in production builds, because having
+                - is disabled by default in production builds, because having
                   &shy; littered throughout each and every word isn't quite
                   SEO-friendly, and might even throw off ATSes [5]
-                - enabled when starting with *y*; default to *no*
+                - is enabled when starting with *y*; defaults to *no*
 
     TWOPASS     whether to render the background as a raster image to be
                 embedded as-is, then render the text in a superimposed layer
 
-                - work around the staggering variance across various PDF
+                - works around the staggering variance across various PDF
                   visualisers, at the cost of non-scalable backgrounds and
                   somewhat greater document size
-                - enabled when starting with *y*; default to *no*
+                - is enabled when starting with *y*; defaults to *no*
 
     BROWSER_KEEPALIVE   how long to keep the spawned browser instance alive
                         (for successive reprints in development mode)
 
-                - expressed in milliseconds
-                - default to 30,000 (30 seconds) for development, 0 for
+                - is expressed in milliseconds
+                - defaults to 30,000 (30 seconds) for development, 0 for
                   production runs
 
     BROWSER_EXECUTABLE  the path to the Chromium executable to use
