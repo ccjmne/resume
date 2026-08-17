@@ -37,12 +37,14 @@ element(document.body).content(
       div(...items.flatMap(i => [rhombus(6), i]).slice(1)),
     ])),
     light('FIND LATEST AT').at('qrcode-hint'),
-    element('img').at('qrcode').attrs({
-      src: `data:image/svg+xml;utf8,${encodeURIComponent(await qrcode.toString(
-        `https://ccjmne.sh/${pkg.name}`,
-        { type: 'svg', errorCorrectionLevel: 'L', margin: 0, color: { dark: '#eeee', light: '#0000' } },
-      ))}`,
-    }),
+    element('a').attrs({ href: `https://ccjmne.sh/${pkg.name}` }).content(
+      element('img').at('qrcode').attrs({
+        src: `data:image/svg+xml;utf8,${encodeURIComponent(await qrcode.toString(
+          `https://ccjmne.sh/${pkg.name}`,
+          { type: 'svg', errorCorrectionLevel: 'L', margin: 0, color: { dark: '#eeee', light: '#0000' } },
+        ))}`,
+      }),
+    ),
   ),
 )
 
